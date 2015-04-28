@@ -49,9 +49,11 @@ noinst_PROGRAMS =			\
 	test-compositor			\
 	test-embedding			\
 	test-embedded			\
+	test-previewer-basic			\
 	$(NULL)
 
 test_compositor_LDADD = libwakefield.la
+test_compositor_CFLAGS = $(AM_CFLAGS) $(GTK_CFLAGS)
 
 test_compositor_SOURCES =	\
 	test-compositor.c	\
@@ -76,3 +78,16 @@ test_embedded_SOURCES =	\
 	$(NULL)
 
 test_embedded_CFLAGS = $(AM_CFLAGS) $(GTK_CFLAGS)
+
+test_previewer_basic_CFLAGS = $(AM_CFLAGS) $(GTK_CFLAGS)
+test_previewer_basic_LDADD = $(GTK_LIBS);
+
+test_previewer_basic_SOURCES =	\
+	gtkpreviewerprovider.c \
+	gtkpreviewerprovider.h \
+	gtkpreviewerproviderimage.c \
+	gtkpreviewerproviderimage.h \
+	gtkpreviewer.c	\
+	gtkpreviewer.h	\
+	test-previewer-basic.c	\
+	$(NULL)
